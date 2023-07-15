@@ -35,7 +35,7 @@ function Acoordian() {
           {items.map((ele) => (
             <>
               <div className="flex items-center justify-end gap-3 relative">
-                <div className=" ">
+                <div className=" mb-3 ">
                   <p className="text-2x border w-[450px] rounded-3xl	 p-[14px] ">
                     {ele.name}
                   </p>
@@ -61,7 +61,7 @@ function Acoordian() {
               </div>
               <div className="flex justify-end">
                 {show.state == true && show.id == ele.id ? (
-                  <p className="text-[15px]  text-left  mr-[55px]  my-8 leading-[30px] bg-[#1e293b] text-white p-3 rounded-lg ml-6  max-w-[50%] ">
+                  <p className="text-[15px]  text-left  mr-[55px]  mb-3 leading-[30px] bg-[#1e293b] text-white p-3 rounded-lg ml-6  max-w-[50%] ">
                     {ele.description}
                   </p>
                 ) : (
