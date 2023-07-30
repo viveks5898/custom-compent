@@ -1,11 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import Acoordian from './components/Accordian';
-
+import Dragdrop from './components/DragAndDrop/Dragdrop';
+import Acoordian from './components/Accordian/Accordian';
+import Randomcolor from './components/Randomcolor/Randomcolor';
 function App() {
   return (
-  <Acoordian/>
-  
+  // <Acoordian/>
+  <Randomcolor />
+
   );
 }
 

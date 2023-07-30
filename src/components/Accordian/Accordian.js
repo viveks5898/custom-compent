@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Acoordian() {
   const items = [
@@ -26,8 +26,11 @@ function Acoordian() {
       image: "/three.jpg",
     },
   ];
-  const [show, setShow] = useState({ state: false, id: 1, first:true });
+  const [show, setShow] = useState({ state: false, id: null });
   const [image, setImage] = useState(items[0]);
+  useEffect(()=>{
+setShow({state:true, id:1})
+  },[])
   return (
     <div className="bg-[white] p-4 mt-[120px]">
       <div className="grid grid-cols-2 text-center gap-[80px]">
