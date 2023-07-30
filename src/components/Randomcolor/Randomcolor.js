@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 const Randomcolor = () => {
-  const [color, setColor] = useState("#F0000");
+  const [color, setColor] = useState("");
+  const [threeColor, setThreeColor] = useState([]);
+  const [answer, setAnswer] = useState("");
   const getRandomDigit = () => {
     const digits = [
       "0",
@@ -28,15 +30,40 @@ const Randomcolor = () => {
     return `#${colorRand}`;
   };
   useEffect(() => {
-    setColor(getRandomDigit());
+    const actualcolor = getRandomDigit();
+    setColor(actualcolor);
+    setThreeColor(
+      [actualcolor, getRandomDigit(), getRandomDigit()].sort(
+        () => 0.5 - Math.random()
+      )
+    );
   }, []);
+  const checkColorHandle = (ele) => {
+    if (color === ele) {
+      setAnswer("right !")
+    } else {
+      setAnswer("wrong !")
+    }
+  };
   return (
-    <div className=" h-full p-7 flex justify-center items-center">
+    <div className=" h-full p-7 flex justify-center items-center flex-col">
       <div
         className={` h-[144px] w-[155px]`}
         style={{ background: color }}
-      ></div><br/>
-      {color}
+      ></div>
+      <br />
+      <div className="">
+        {threeColor.map((ele, key) => (
+          <button
+            onClick={() => checkColorHandle(ele)}
+            className="bg-[black] text-white p-2 mx-8"
+            key={key}
+          >
+            {ele}
+          </button>
+        ))}
+      </div>
+  <p className={`italic text-[42px]`}>{answer}</p>
 
     </div>
   );
